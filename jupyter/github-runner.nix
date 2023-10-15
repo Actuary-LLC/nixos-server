@@ -19,7 +19,7 @@
     ProtectHome = false;
   };
   services.github-runner.name = "deploy";
-  services.github-runner.user = "alex";
+  services.github-runner.user = "actuary";
   #services.github-runner.workDir = "/tmp/Github";
   services.github-runner.extraPackages = with pkgs; [
     docker
