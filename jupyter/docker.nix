@@ -10,6 +10,6 @@
     setSocketVariable = true;
   };
   virtualisation.docker.liveRestore = false;
-  #virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.docker.storageDriver = "btrfs";
 
 }
