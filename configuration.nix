@@ -51,8 +51,8 @@
   users.users.actuary = {
     isNormalUser = true;
     description = "actuary";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
+    packages = with pkgs; [docker];
   };
 
   # Enable automatic login for the user.
@@ -66,6 +66,8 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    git
+   docker
+   github-runner
   ];
     programs.nix-ld.enable = true; #for vscode server
   # Some programs need SUID wrappers, can be configured further or are

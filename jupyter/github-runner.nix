@@ -18,9 +18,11 @@
   services.github-runner.serviceOverrides = {
     ProtectHome = false;
   };
-  services.github-runner.name = "deploy";
+
+  services.github-runners.jupyter.extraLabels = ["jupyter"];
+  services.github-runner.name = "jupyter";
   services.github-runner.user = "actuary";
-  #services.github-runner.workDir = "/tmp/Github";
+  services.github-runner.workDir = "/tmp";
   services.github-runner.extraPackages = with pkgs; [
     docker
     # nixos-rebuild
