@@ -11,12 +11,10 @@
       "nodejs-16.20.2"
     ];
   };
-  services.github-runner.nodeRuntimes = ["node16"];
-  services.github-runner = {
-    enable = true;
+  services.github-runners = {
       jupyter = {
-        repo = "Actuary-LLC/jupyter";
         enable = true;
+        #repo = "Actuary-LLC/jupyter";
         url = "https://github.com/Actuary-LLC/jupyter";
         tokenFile = "/etc/nixos/jupyter.token";
         replace = true;
@@ -24,21 +22,23 @@
         extraLabels = ["jupyter"];
         name = "jupyter";
         user = "actuary";
-        workDir = "/tmp";
+        workDir = "/tmp/jupyter";
         extraPackages = with pkgs; [ docker ];
+        nodeRuntimes = ["node16"];
       };
-      database = {
-        repo = "Actuary-LLC/database";
+      postgres = {
         enable = true;
-        url = "https://github.com/Actuary-LLC/database";
-        tokenFile = "/etc/nixos/database.token";
+        #repo = "Actuary-LLC/postgres";
+        url = "https://github.com/Actuary-LLC/postgres";
+        tokenFile = "/etc/nixos/postgres.token";
         replace = true;
         serviceOverrides.ProtectHome = false;
-        extraLabels = ["database"];
-        name = "database";
-        user = "actuary";
+        extraLabels = ["postgres"];
+        name = "postgres";
+        user = "postgres";
         workDir = "/tmp";
         extraPackages = with pkgs; [ docker ];
+        nodeRuntimes = ["node16"];
     };
   };
 }
