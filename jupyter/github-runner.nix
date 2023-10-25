@@ -11,22 +11,32 @@
       "nodejs-16.20.2"
     ];
   };
-  services.github-runner.enable = true;
-  services.github-runner.url = "https://github.com/Actuary-LLC/jupyter"; #Token needs to have read/write Administration priviledges to create runners.
-  services.github-runner.tokenFile = "/etc/nixos/runner.token";
-  services.github-runner.replace = true;
-  services.github-runner.serviceOverrides = {
-    ProtectHome = false;
-  };
 
-  services.github-runners.jupyter.extraLabels = ["jupyter"];
-  services.github-runner.name = "jupyter";
-  services.github-runner.user = "actuary";
-  services.github-runner.workDir = "/tmp";
-  services.github-runner.extraPackages = with pkgs; [
-    docker
-    # nixos-rebuild
-  ];
+    services.github-runner.jupyter = {
+      enable = true;
+      url = "https://github.com/Actuary-LLC/jupyter";
+      tokenFile = "/etc/nixos/jupyter.token";
+      replace = true;
+      serviceOverrides.ProtectHome = false;
+      extraLabels = ["jupyter"];
+      name = "jupyter";
+      user = "actuary";
+      workDir = "/tmp";
+      extraPackages = with pkgs; [ docker ];
+    };
+
+    services.github-runner.database = {
+      enable = true;
+      url = "https://github.com/Actuary-LLC/database";
+      tokenFile = "/etc/nixos/database.token";
+      replace = true;
+      serviceOverrides.ProtectHome = false;
+      extraLabels = ["database"];
+      name = "database";
+      user = "actuary";
+      workDir = "/tmp";
+      extraPackages = with pkgs; [ docker ];
+    };
   
   services.github-runner.nodeRuntimes = ["node16"];
 
