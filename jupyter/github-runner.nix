@@ -14,7 +14,6 @@
   services.github-runner.nodeRuntimes = ["node16"];
   services.github-runner = {
     enable = true;
-    runners = {
       jupyter = {
         repo = "Actuary-LLC/jupyter";
         enable = true;
@@ -40,7 +39,6 @@
         user = "actuary";
         workDir = "/tmp";
         extraPackages = with pkgs; [ docker ];
-      };
     };
   };
 }
