@@ -36,7 +36,35 @@
         extraLabels = ["postgres"];
         name = "postgres";
         user = "postgres";
-        workDir = "/tmp";
+        workDir = "/tmp/postgres";
+        extraPackages = with pkgs; [ docker ];
+        nodeRuntimes = ["node16"];
+    };
+      lightdash = {
+        enable = true;
+        #repo = "Actuary-LLC/lightdash";
+        url = "https://github.com/Actuary-LLC/lightdash";
+        tokenFile = "/etc/nixos/lightdash.token";
+        replace = true;
+        serviceOverrides.ProtectHome = false;
+        extraLabels = ["lightdash"];
+        name = "lightdash";
+        user = "actuary";
+        workDir = "/tmp/lightdash";
+        extraPackages = with pkgs; [ docker ];
+        nodeRuntimes = ["node16"];
+    };
+        website = {
+        enable = true;
+        #repo = "Actuary-LLC/lightdash";
+        url = "https://github.com/Actuary-LLC/website";
+        tokenFile = "/etc/nixos/website.token";
+        replace = true;
+        serviceOverrides.ProtectHome = false;
+        extraLabels = ["website"];
+        name = "website";
+        user = "actuary";
+        workDir = "/tmp/website";
         extraPackages = with pkgs; [ docker ];
         nodeRuntimes = ["node16"];
     };
