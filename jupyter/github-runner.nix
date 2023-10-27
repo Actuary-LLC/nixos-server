@@ -33,7 +33,7 @@
         serviceOverrides.ProtectHome = false;
         extraLabels = ["postgres"];
         name = "postgres";
-        user = "postgres";
+        user = "actuary";
         workDir = "/tmp/postgres";
         extraPackages = with pkgs; [ docker ];
         nodeRuntimes = ["node16"];
