@@ -14,7 +14,6 @@
   services.github-runners = {
       jupyter = {
         enable = true;
-        #repo = "Actuary-LLC/jupyter";
         url = "https://github.com/Actuary-LLC/jupyter";
         tokenFile = "/etc/nixos/jupyter.token";
         replace = true;
@@ -28,7 +27,6 @@
       };
       postgres = {
         enable = true;
-        #repo = "Actuary-LLC/postgres";
         url = "https://github.com/Actuary-LLC/postgres";
         tokenFile = "/etc/nixos/postgres.token";
         replace = true;
@@ -42,7 +40,6 @@
     };
       lightdash = {
         enable = true;
-        #repo = "Actuary-LLC/lightdash";
         url = "https://github.com/Actuary-LLC/lightdash";
         tokenFile = "/etc/nixos/lightdash.token";
         replace = true;
@@ -56,7 +53,6 @@
     };
         website = {
         enable = true;
-        #repo = "Actuary-LLC/lightdash";
         url = "https://github.com/Actuary-LLC/website";
         tokenFile = "/etc/nixos/website.token";
         replace = true;
