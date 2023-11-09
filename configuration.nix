@@ -68,6 +68,7 @@
    git
    docker
    github-runner
+   wget
   ];
     programs.nix-ld.enable = true; #for vscode server
   # Some programs need SUID wrappers, can be configured further or are
