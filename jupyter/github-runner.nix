@@ -4,6 +4,8 @@
   environment.systemPackages = with pkgs; [
   git
   github-runner
+  nodejs_16
+  nodejs_20
   ];
   nixpkgs.config = {
     allowUnfree = true;
@@ -12,57 +14,23 @@
     ];
   };
   services.github-runners = {
-      jupyter = {
+      actuary = {
         enable = true;
-        url = "https://github.com/Actuary-LLC/jupyter";
-        tokenFile = "/etc/nixos/jupyter.token";
+        url = "https://github.com/Actuary-LLC";
+        tokenFile = "/etc/nixos/actuary.token";
         replace = true;
         serviceOverrides.ProtectHome = false;
-        extraLabels = ["jupyter"];
-        name = "jupyter";
+        extraLabels = ["actuary"];
+        name = "actuary";
         user = "actuary";
-        workDir = "/tmp/jupyter";
-        extraPackages = with pkgs; [ docker ];
-        nodeRuntimes = ["node16"];
+        #workDir = "/tmp";
+        extraPackages = with pkgs; [ 
+          docker
+          nodejs_16 
+          nodejs_20 ];
+        nodeRuntimes = ["node16"
+        "node20"
+        ];
       };
-      postgres = {
-        enable = true;
-        url = "https://github.com/Actuary-LLC/postgres";
-        tokenFile = "/etc/nixos/postgres.token";
-        replace = true;
-        serviceOverrides.ProtectHome = false;
-        extraLabels = ["postgres"];
-        name = "postgres";
-        user = "actuary";
-        workDir = "/tmp/postgres";
-        extraPackages = with pkgs; [ docker ];
-        nodeRuntimes = ["node16"];
-    };
-      lightdash = {
-        enable = true;
-        url = "https://github.com/Actuary-LLC/lightdash";
-        tokenFile = "/etc/nixos/lightdash.token";
-        replace = true;
-        serviceOverrides.ProtectHome = false;
-        extraLabels = ["lightdash"];
-        name = "lightdash";
-        user = "actuary";
-        workDir = "/tmp/lightdash";
-        extraPackages = with pkgs; [ docker ];
-        nodeRuntimes = ["node16"];
-    };
-        website = {
-        enable = true;
-        url = "https://github.com/Actuary-LLC/website";
-        tokenFile = "/etc/nixos/website.token";
-        replace = true;
-        serviceOverrides.ProtectHome = false;
-        extraLabels = ["website"];
-        name = "website";
-        user = "actuary";
-        workDir = "/tmp/website";
-        extraPackages = with pkgs; [ docker ];
-        nodeRuntimes = ["node16"];
-    };
   };
 }
