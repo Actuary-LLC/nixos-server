@@ -23,7 +23,7 @@
         extraLabels = ["actuary"];
         name = "actuary";
         user = "actuary";
-        #workDir = "/tmp";
+        workDir = "/tmp";
         extraPackages = with pkgs; [ 
           docker
           nodejs_16 
