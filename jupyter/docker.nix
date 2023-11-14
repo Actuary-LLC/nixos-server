@@ -10,7 +10,7 @@
    # setSocketVariable = true;
   #};
   virtualisation.docker.liveRestore = false;
-  virtualisation.docker.storageDriver = "btrfs";
+  #virtualisation.docker.storageDriver = "btrfs";
 
   # (Optional) Enable Docker registry.
   services.dockerRegistry.enable = true;
