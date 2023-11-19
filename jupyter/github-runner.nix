@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-  git
   github-runner
   nodejs_16
   nodejs_20
