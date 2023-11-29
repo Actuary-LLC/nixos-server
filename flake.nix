@@ -13,7 +13,7 @@
           ./configuration.nix
           ./hardware-configuration.nix
           ./jupyter/docker.nix
-          #./jupyter/github-runner.nix
+          ./jupyter/github-runner.nix
         ];
       };
     };

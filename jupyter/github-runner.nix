@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
   github-runner
-  nodejs_16
   nodejs_20
   ];
   nixpkgs.config = {
@@ -25,9 +24,9 @@
         #workDir = "/tmp";
         extraPackages = with pkgs; [ 
           docker
-          nodejs_16 
           nodejs_20 ];
-        nodeRuntimes = ["node16"
+        nodeRuntimes = [
+        
         "node20"
         ];
       };
