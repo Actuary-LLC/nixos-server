@@ -3,13 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
   github-runner
-  nodejs_20
   ];
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "nodejs-16.20.2"
-    ];
   };
   services.github-runners = {
       actuary = {
@@ -24,11 +20,61 @@
         #workDir = "/tmp";
         extraPackages = with pkgs; [ 
           docker
-          nodejs_20 ];
-        nodeRuntimes = [
-        
-        "node20"
-        ];
+          ];
+      };
+      alex = {
+        url = "https://github.com/AlexanderTroyScott/hackathon-predictive-analytics";
+        tokenFile = "/etc/nixos/alex.token";
+        replace = true;
+        serviceOverrides.ProtectHome = false;
+        extraLabels = ["actuary"];
+        name = "actuary";
+        user = "actuary";
+        #workDir = "/tmp";
+        extraPackages = with pkgs; [ 
+          docker
+          ];
+      };
+      memos = {
+        url = "https://github.com/AlexanderTroyScott/memos";
+        tokenFile = "/etc/nixos/memos.token";
+        replace = true;
+        serviceOverrides.ProtectHome = false;
+        extraLabels = ["documentation"];
+        name = "actuary";
+        user = "actuary";
+        #workDir = "/tmp";
+        extraPackages = with pkgs; [ 
+          docker
+          ];
+      };
+      personal = {
+        enable = true;
+        url = "https://github.com/AlexanderTroyScott/factorio";
+        tokenFile = "/etc/nixos/personal.token";
+        replace = true;
+        serviceOverrides.ProtectHome = false;
+        extraLabels = ["HardwareName"];
+        name = "HardwareName";
+        user = "actuary";
+        #workDir = "/tmp";
+        extraPackages = with pkgs; [ 
+          docker
+          ];
+      };
+      palworld = {
+        enable = true;
+        url = "https://github.com/AlexanderTroyScott/steamcmd";
+        tokenFile = "/etc/nixos/personal.token";
+        replace = true;
+        serviceOverrides.ProtectHome = false;
+        extraLabels = ["HardwareName"];
+        name = "HardwareName";
+        user = "actuary";
+        #workDir = "/tmp";
+        extraPackages = with pkgs; [ 
+          docker
+          ];
       };
   };
 }
