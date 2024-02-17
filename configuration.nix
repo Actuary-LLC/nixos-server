@@ -70,6 +70,7 @@
    github-runner
    wget
    unzip
+   btop
   ];
     programs.nix-ld.enable = true; #for vscode server
   # Some programs need SUID wrappers, can be configured further or are
