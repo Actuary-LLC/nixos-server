@@ -75,6 +75,7 @@
    # docker
     git
     btop
+    openssl
   ];
   programs.nix-ld.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
